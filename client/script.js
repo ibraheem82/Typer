@@ -58,8 +58,33 @@ function chatStripe (isAi, value, uniqueId){
        </div>
     </div>
     </div>
-    
     `
   )
-
 }
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  // Get the datas that was typed into the form.
+  const data = new FormData(form)
+
+  // Generate the User's chatstripe  i.e where the user messages will be displayed
+  const value = input.value;
+    // [false] -> not the Ai, [value] -> 
+  chatContainer.innerHTML += chatStripe(false, data.get('prompt'));
+  form.reset();
+
+  
+  const uniqueId = generateUniqueId();
+  // will be filled with the '...' loadInterval
+  chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
+  
+  // keep scrolling as the user types.
+  // will put the new message in view.
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
+  const messageDiv = document.getElementById(uniqueId);
+
+  loader(messageDiv);
+  }
