@@ -70,7 +70,7 @@ const handleSubmit = async (e) => {
   const data = new FormData(form)
 
   // Generate the User's chatstripe  i.e where the user messages will be displayed
-  const value = input.value;
+  // const value = input.value;
     // [false] -> not the Ai, [value] -> 
   chatContainer.innerHTML += chatStripe(false, data.get('prompt'));
   form.reset();
@@ -88,3 +88,10 @@ const handleSubmit = async (e) => {
 
   loader(messageDiv);
   }
+
+form.addEventListener('submit', handleSubmit);
+form.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    handleSubmit(e);
+  }
+})
