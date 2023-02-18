@@ -3,11 +3,15 @@ import * as dotenv from 'dotenv';
 import cors from 'cors';
 import { Configuration, OpenAIApi } from 'openai';
 
-dotenv.config({
-  apiKey: process.env.OPENAI_API_KEYS
+dotenv.config();
+
+console.log(process.env.OPENAI_API_KEY)
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
-const openai = new OpenAIApi(Configuration)
+const openai = new OpenAIApi(configuration)
 
 const app = express();
 app.use(cors());
@@ -29,11 +33,11 @@ app.post('/', async (req, res) => {
       // prompt is been passed in from the frontedn
       prompt: `${prompt}`,
       // how we want the model to take risk in giving us results
-      temperature: 0.5,
+      temperature: 0,
       // maximum numbers to tokens to generate in a complettion
-      max_tokens: 3500,
+      max_tokens: 3000,
       top_p: 1,
-      frequency_penalty: 0.7,
+      frequency_penalty: 0.5,
       presence_penalty: 0,
     });
 
