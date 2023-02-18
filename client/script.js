@@ -32,7 +32,7 @@ function typeText(element, text) {
     } else {
       clearInterval(interval);
     }
-  }, 2000)
+  }, 200)
 }
 
 function generateUniqueId() {
@@ -87,6 +87,22 @@ const handleSubmit = async (e) => {
   const messageDiv = document.getElementById(uniqueId);
 
   loader(messageDiv);
+
+
+  const response = await fetch('http://localhost:5000', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      // * is the datas that is coming from out textarea, we are using the post request ethod
+      prompt: data.get('prompt')
+    })
+  })
+
+  clearInterval(loadInterval);
+  messageDiv.innerHTML = '';
+  
   }
 
 form.addEventListener('submit', handleSubmit);
