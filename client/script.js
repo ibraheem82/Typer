@@ -14,7 +14,7 @@ function loader(element) {
 
   loadInterval = setInterval(() => {
     element.textContent += '.';
-    if (element.textContext === '....') {
+    if (element.textContent === '....') {
       element.textContent = '';
     }
   }, 300)
