@@ -25,20 +25,20 @@ app.get('/', async (req, res) => {
 });
 
 
-app.post('/', async (req, res) => { 
+app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      // prompt is been passed in from the frontedn
+      // prompt is been passed in from the frontend.
       prompt: `${prompt}`,
-      // how we want the model to take risk in giving us results
-      temperature: 0,
-      // maximum numbers to tokens to generate in a complettion
-      max_tokens: 3000,
+      // how we want the model to take risk in giving us results.
+      temperature: 1,
+      // maximum numbers to tokens to generate in a complettion.
+      max_tokens: 4000,
       top_p: 1,
       frequency_penalty: 0.5,
-      presence_penalty: 0,
+      presence_penalty: 1.25,
     });
 
     res.status(200).send({
