@@ -27,12 +27,12 @@ function typeText(element, text) {
     if (index < text.length) {
       // will get character under a specific index, in the text that the AI is going to return. 
       // element.innerHTML = element.innerHTML + text[index];
-      element.innerHTML += text.chartAt(index)
+      element.innerHTML += text.charAt(index)
       index++;
     } else {
       clearInterval(interval);
     }
-  }, 200)
+  }, 20)
 }
 
 function generateUniqueId() {
@@ -48,7 +48,7 @@ function chatStripe (isAi, value, uniqueId){
   return (
     `
     <div class="wrapper ${isAi && 'ai'}">
-    <div class="chat>
+    <div class="chat">
        <div class="profile">
        <img src="${isAi ? bot : user}" alt="${isAi ? 'bot' : 'user'}">
        </div>
@@ -102,8 +102,23 @@ const handleSubmit = async (e) => {
 
   clearInterval(loadInterval);
   messageDiv.innerHTML = '';
-  
+
+  if (response.ok) {
+    const data = await response.json();
+    const parsedData = data.bot.trim();
+
+    typeText(messageDiv, parsedData);
+  } else {
+    const err = await response.text();
+    messageDiv.innerHTML = "Something went wrong ❌❌❌";
+
+    // alert(err);
+
+    console.log(err);
+
   }
+
+}
 
 form.addEventListener('submit', handleSubmit);
 form.addEventListener('keyup', (e) => {
