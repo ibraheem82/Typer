@@ -1,12 +1,17 @@
 <!-- @format -->
 
+![Live Demo](https://typer-plum.vercel.app/)
+
 # ChatGpt Clone
 
-###### This application can answer any question, about coding javascript and many more, you can use the application to learn coding
+## This application can answer any question, about coding javascript and many more, you can use the application to learn coding
 
-## In order for you to build this project.
+_Photo:_
+![img](render.png)
 
-## Set up a VITE project, and vanila as the project template.
+#### In order for you to build this project.
+
+#### Set up a VITE project, and vanila as the project template.
 
 ---
 
