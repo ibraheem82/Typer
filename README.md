@@ -1,6 +1,6 @@
 <!-- @format -->
 
-![Live Demo](https://typer-plum.vercel.app/)
+[Live Demo](https://typer-plum.vercel.app/)
 
 # ChatGpt Clone
 
