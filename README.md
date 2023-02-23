@@ -4,7 +4,7 @@
 
 # ChatGpt Clone
 
-## This application can answer any question, about coding javascript and many more, you can use the application to learn coding
+## This application can answer any question, about coding javascript and many more, you can use the application to learn coding.
 
 _Photo:_
 ![img](render.png)
