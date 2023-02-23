@@ -21,3 +21,7 @@ npm i openai
 ```
 
 > You can go through the openai documentation for more information, on our to consume and use thier api.
+
+## I plan to advance this project in the future by building a desktop application or probably mobile application.
+
+_Built with ❤ by Astro🚀_
